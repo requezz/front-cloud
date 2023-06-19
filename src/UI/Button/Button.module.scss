@@ -1,0 +1,38 @@
+.Button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 8px;
+  width: 79px;
+  height: 44px;
+  background: #5558FA;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(85, 88, 250, 0.85);
+    transition: 0.3s;
+  }
+
+  &:disabled {
+    background: #CCC;
+    cursor: default;
+  }
+}
+
+.buttonText {
+  width: 47px;
+  height: 20px;
+  font-family: 'SB Sans Interface', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  flex: none;
+  order: 0;
+  flex-grow: 0
+}

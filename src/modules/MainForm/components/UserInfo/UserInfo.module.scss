@@ -1,0 +1,24 @@
+.UserInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  gap: 8px;
+  position: absolute;
+  width: 228px;
+  height: 50px;
+  left: 128px;
+  top: 38px;
+}
+
+.UserInfoName {
+  height: 26px;
+  font-family: "SB Sans Interface", sans-serif;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #333333;
+}

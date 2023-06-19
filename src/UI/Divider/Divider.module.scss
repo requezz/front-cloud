@@ -1,0 +1,20 @@
+.Divider {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  position: absolute;
+  width: 852px;
+  height: 0;
+  left: 24px;
+  top: 129px;
+}
+
+.Delimiter {
+  width: 852px;
+  height: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}

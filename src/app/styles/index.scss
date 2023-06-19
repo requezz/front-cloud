@@ -1,0 +1,7 @@
+@import "reset";
+$myCustomFont: "/app/fonts/SBSansDisplayRegular.woff2";
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("#{$myCustomFont}") format("woff2");
+}

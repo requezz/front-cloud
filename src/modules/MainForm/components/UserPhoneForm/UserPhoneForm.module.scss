@@ -1,0 +1,21 @@
+.UserPhone{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 8px;
+  width: 400px;
+  height: 72px;
+  margin-top: 40px;
+  margin-left: 24px;
+}
+
+.phone {
+  width: 400px;
+  height: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  color: #333333;
+  flex: none;
+}
