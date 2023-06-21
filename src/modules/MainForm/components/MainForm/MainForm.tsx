@@ -19,6 +19,7 @@ interface MainFormProps {
 
 export const MainForm = memo((props: MainFormProps) => {
   const { className } = props;
+  const [btnValidate, setBtnValidate] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -33,7 +34,6 @@ export const MainForm = memo((props: MainFormProps) => {
   const onChangePhone: any = useCallback(
     (value: any) => {
       dispatch(mainFormActions.setPhone(value));
-      console.log(dispatch(mainFormActions.setPhone(value)));
     },
     [dispatch]
   );
@@ -41,10 +41,19 @@ export const MainForm = memo((props: MainFormProps) => {
   const onChangeEmail = useCallback(
     (value: string) => {
       dispatch(mainFormActions.setEmail(value));
-      console.log(dispatch(mainFormActions.setEmail(value)));
     },
     [dispatch]
   );
+
+  useEffect(() => {
+    if (phone === "" || email === "") {
+      setBtnValidate(false);
+    } else {
+      setBtnValidate(true);
+    }
+  }, [phone, email]);
+
+  console.log(email);
 
   return (
     <div className={classNames(cls.MainForm, {}, [className])}>
@@ -76,7 +85,7 @@ export const MainForm = memo((props: MainFormProps) => {
         onClick={handleClickRoute}
         className={cls.userStartButton}
         type="button"
-        disabled={false}
+        disabled={!btnValidate}
       />
     </div>
   );

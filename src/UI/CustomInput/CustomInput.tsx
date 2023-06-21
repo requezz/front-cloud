@@ -3,6 +3,8 @@ import { classNames } from "../../app/helpers/classNames";
 import cls from "./CustomInput.module.scss";
 import { Form, Input } from "antd";
 import InputMask from "react-input-mask";
+import { MainFormValidationKeys } from "../../modules/MainForm/constants/enums";
+import { Rule } from "antd/lib/form";
 
 interface CustomInput {
   className?: string;

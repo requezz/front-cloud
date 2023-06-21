@@ -7,28 +7,25 @@ export const Rules: Record<
 > = {
   [MainFormValidationKeys.phone]: [
     {
-      required: false,
+      required: true,
       pattern: /^(\+7|8)?\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/,
-      message: MainFormValidationErrors.MainFormPhoneInvalid,
+      message: MainFormValidationErrors.MainFormPhoneRequired,
       whitespace: true,
     },
     {
-      required: true,
-      message: MainFormValidationErrors.MainFormPhoneRequired,
-      whitespace: true,
+      pattern: /^(?=.*[^\s()+-])/,
+      message: MainFormValidationErrors.MainFormPhoneInvalid,
     },
   ],
   [MainFormValidationKeys.email]: [
     {
-      required: false,
-      pattern: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-      message: MainFormValidationErrors.MainFormEmailInvalid,
-      whitespace: true,
-    },
-    {
       required: true,
       message: MainFormValidationErrors.MainFormEmailRequired,
       whitespace: true,
+    },
+    {
+      pattern: /^\S+@\S+\.\S+$/g,
+      message: MainFormValidationErrors.MainFormEmailInvalid,
     },
   ],
 };

@@ -3,7 +3,7 @@ import { classNames } from "../../app/helpers/classNames";
 import cls from "./CustomButton.module.scss";
 import { Form, Button } from "antd";
 
-interface ButtonProps {
+    interface ButtonProps {
   className?: string;
   type: any;
   onClick?: () => void;
