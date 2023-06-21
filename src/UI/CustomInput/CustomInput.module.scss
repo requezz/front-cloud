@@ -1,4 +1,4 @@
-.UserPhone{
+.CustomInput {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -6,11 +6,11 @@
   gap: 8px;
   width: 400px;
   height: 72px;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-left: 24px;
 }
 
-.phone {
+.label {
   width: 400px;
   height: 20px;
   font-size: 14px;

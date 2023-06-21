@@ -1,7 +1,8 @@
-import { memo } from "react";
+import React, { memo } from "react";
 import { classNames } from "../../app/helpers/classNames";
 import cls from "./MainPage.module.scss";
 import { MainForm } from "../../modules/MainForm";
+import { Form } from "antd";
 
 interface MainPageProps {
   className?: string;
@@ -12,7 +13,9 @@ export const MainPage = memo((props: MainPageProps) => {
 
   return (
     <div className={classNames(cls.MainPage, {}, [className])}>
-      <MainForm />
+      <Form onFinish={() => console.log("Submit")} onFinishFailed={() => console.log("Failed!")}>
+        <MainForm />
+      </Form>
     </div>
   );
 });

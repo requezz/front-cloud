@@ -7,7 +7,7 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
   Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }
 
-export const Icon = memo((props: IconProps) => {
+export const CustomIcon = memo((props: IconProps) => {
   const { className, Svg, ...otherProps } = props;
 
   return (
