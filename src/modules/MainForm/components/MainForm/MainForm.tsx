@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from "../../../../app/store/store";
 import { mainFormActions } from "../../store/slices/mainFormSlice";
 import { useNavigate } from "react-router-dom";
 import { getRouteStepFirstPage } from "../../../../app/constants/routes";
+import { Form } from "antd";
 
 interface MainFormProps {
   className?: string;
@@ -19,20 +20,25 @@ interface MainFormProps {
 
 export const MainForm = memo((props: MainFormProps) => {
   const { className } = props;
-  const [btnValidate, setBtnValidate] = useState<boolean>(false);
+
+  const [error, setError] = useState(false);
+  const [btnValidate, setBtnValidate] = useState<boolean>(true);
 
   const navigate = useNavigate();
 
   const handleClickRoute = () => {
-    navigate(getRouteStepFirstPage());
+    if (phone === "" || email === "") {
+      setError(false);
+    } else {
+      setError(true);
+      navigate(getRouteStepFirstPage());
+    }
   };
 
   const dispatch = useAppDispatch();
 
-  const { phone, email } = useAppSelector((state) => state.mainForm);
-
-  const onChangePhone: any = useCallback(
-    (value: any) => {
+  const onChangePhone = useCallback(
+    (value: string) => {
       dispatch(mainFormActions.setPhone(value));
     },
     [dispatch]
@@ -45,15 +51,14 @@ export const MainForm = memo((props: MainFormProps) => {
     [dispatch]
   );
 
+  const { phone, email } = useAppSelector((state) => state.mainForm);
+
   useEffect(() => {
     if (phone === "" || email === "") {
-      setBtnValidate(false);
-    } else {
-      setBtnValidate(true);
+      setBtnValidate(error);
     }
-  }, [phone, email]);
-
-  console.log(email);
+    return setBtnValidate(!error);
+  }, [phone, email, email, btnValidate]);
 
   return (
     <div className={classNames(cls.MainForm, {}, [className])}>
@@ -61,32 +66,38 @@ export const MainForm = memo((props: MainFormProps) => {
       <UserInfo />
       <UserCommunication />
       <Divider />
-      <CustomInput
-        onChange={onChangePhone}
-        value={phone}
-        label="Номер телефона"
-        type="text"
-        placeholder="+7 999 999-99-99"
-        rules={Rules.phone}
-        className={cls.phone}
-        name="phone"
-        mask={true}
-      />
-      <CustomInput
-        label="Email"
-        name="email"
-        value={email}
-        placeholder="tim.jennings@example.com"
-        rules={Rules.email}
-        className={cls.email}
-        onChange={onChangeEmail}
-      />
-      <CustomButton
-        onClick={handleClickRoute}
-        className={cls.userStartButton}
-        type="button"
-        disabled={!btnValidate}
-      />
+      <Form
+        onFinish={handleClickRoute}
+        onFinishFailed={() => console.log("Failed!")}
+      >
+        <CustomInput
+          onChange={onChangePhone}
+          value={phone}
+          label="Номер телефона"
+          type="text"
+          placeholder="+7 999 999-99-99"
+          rules={Rules.phone}
+          className={cls.phone}
+          name="phone"
+          mask={true}
+        />
+        <CustomInput
+          label="Email"
+          name="email"
+          value={email}
+          placeholder="tim.jennings@example.com"
+          rules={Rules.email}
+          className={cls.email}
+          onChange={onChangeEmail}
+        />
+        <CustomButton
+          className={cls.userStartButton}
+          type="submit"
+          disabled={!btnValidate}
+        >
+          Начать
+        </CustomButton>
+      </Form>
     </div>
   );
 });

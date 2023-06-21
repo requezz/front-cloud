@@ -1,8 +1,9 @@
 .App {
-  width: 1366px;
-  height: 953px;
-  position: relative;
-  margin: auto;
-  background: #f4f4f5;
-  font-family: "myCustomFont", sans-serif;
+  position: absolute;
+  width: 900px;
+  height: 704px;
+  left: calc(50% - 900px/2);
+  top: 12px;
+  background: #FFFFFF;
+  border-radius: 12px 12px 0 0;
 }

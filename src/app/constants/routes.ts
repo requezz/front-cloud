@@ -1,2 +1,2 @@
-export const getRouteMain = () => "/";
+export const getRouteMain = () => "*";
 export const getRouteStepFirstPage = () => "/stepFirstPage";

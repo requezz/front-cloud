@@ -5,3 +5,12 @@ $myCustomFont: "/app/fonts/SBSansDisplayRegular.woff2";
   font-family: "MyCustomFont";
   src: url("#{$myCustomFont}") format("woff2");
 }
+
+body {
+  width: 1366px;
+  height: 953px;
+  position: relative;
+  margin: auto;
+  background: #f4f4f5;
+  font-family: "myCustomFont", sans-serif;
+}

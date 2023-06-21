@@ -12,8 +12,8 @@ export enum MainFormValidationKeys {
 }
 
 export enum MainFormValidationErrors {
-  MainFormPhoneInvalid = "Phone incorrect!",
-  MainFormPhoneRequired = "Phone is required!",
-  MainFormEmailInvalid = "Email incorrect!",
-  MainFormEmailRequired = "Email is required!",
+  MainFormPhoneInvalid = "Некорректный телефон! ",
+  MainFormPhoneRequired = "Это поле обязательно!",
+  MainFormEmailInvalid = "Некорректный email!",
+  MainFormEmailRequired = "Это поле обязательно!",
 }
